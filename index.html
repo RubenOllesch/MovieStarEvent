@@ -8,37 +8,20 @@
   <title>Tapp</title>
 
   <link rel="stylesheet" href="https://chayns-res.tobit.com/API/V3.1/css/chayns.min.css">
+  <link rel="stylesheet" href="main.css">
  </head>
  <body>
   <div class="tapp" style="min-height: 650px;">
    <div class="tapp__intro">
-    <h1>Example Tapp</h1>
-    <p>This tapp shows you the basics of working with the chayns® API.</p>
+    <h1 id="titleQuestion">Bist du bereit?</h1>
    </div>
 
    <div class="tapp__content">
-    <div class="content__card">
-     <h3>Person Finder</h3>
-     <p>This element allows you to search for chayns® users by using an input. A selected user will be logged to the console.</p>
-     <input id="personfinder" type="text" class="input" finder="person" placeholder="name" style="width: 100%">
-    </div>
+
    </div>
   </div>
-  <script src="https://chayns-res.tobit.com/API/V3.1/js/chayns.min.js"></script>
-  <script>
-    chayns.ready.then(function () {
-      //adding functionality to the person finder. It now logs the selected user to the console
-      //get the personfinder via queryselector and add an chayns-event 'fnderChange' to it
-      var finder = document.getElementById("personfinder");
-      finder.addEventListener("finderChange", function (data) { console.log(data.user); });
 
-      //Creating a variable for being used in the following dialog. Inserting a placeholder text in case no user is logged in.
-      var userName = "No user found. Log in to display your name here.";
-      if (chayns.env.user.isAuthenticated) { //checks if an user is logged in
-        userName = chayns.env.user.name; //storing the userName to a variable
-      }
-      chayns.dialog.alert('Username', userName); //showing an alert dialog that views the name of the current user (or the placeholder text)
-    });
-  </script>
+  <script src="https://chayns-res.tobit.com/API/V3.1/js/chayns.min.js"></script>
+  <script src="main.js"></script>
  </body>
 </html>
