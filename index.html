@@ -37,7 +37,7 @@
                         <div class="accordion__content">
                             <span>Telefonnummer: </span>
                             <span>1234567890</span>
-                            <img id="callIcon" src="res/call_Icon.png" alt="Jetzt anrufen">
+                            <img id="callIcon" onmouseover="this.src='res/call_Icon_Hover.png'" onmouseout="this.src='res/call_Icon.png'" onclick="callNumber(1234567890)" src="res/call_Icon.png" alt="Jetzt anrufen">
                         </div>
                         <div class="accordion__content">
                             Noch mehr Kontakt
@@ -56,6 +56,7 @@
         </div>
 
         <script src="https://chayns-res.tobit.com/API/V3.1/js/chayns.min.js"></script>
-        <script src="main.js"></script>
+        <script src="script/main.js"></script>
+        <script src="script/animation.js"></script>
     </body>
 </html>

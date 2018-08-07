@@ -11,3 +11,7 @@
     width: 25px;
     margin-left: 20px;
 }
+
+#callIcon:hover {
+    cursor: pointer;
+}
