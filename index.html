@@ -1,1 +1,630 @@
+<!DOCTYPE html>
+<html class="scroll">
+<head>
+    
+    <meta charset="utf-8" />
 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="alternate" href="http://cinemy-ahaus.de" hreflang="de-DE" />
+    <meta name="google-site-verification" content="Ov2U-Owyl5kZbYZNVTMEE_eridtIF1NOZtbX3LxMQrw" />
+
+    <!--Open-Graph Meta-Tags:-->
+    <meta property="og:site_name" content="Cinemy" />
+    <meta property="fb:app_id" content="996876623748482" />
+        <meta property="og:description" content="Das Cinemy in Ahaus"/>
+        <meta property="og:url" content="http://cinemy-ahaus.de/willkommen"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="http://images.tobit.com/locations/148001/cb742601-9c68-40f0-9f68-a806c60e2c6e.png"/>
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:title" content="Cinemy" />
+    <meta property="twitter:description" content="Das Cinemy in Ahaus" />
+    <meta property="twitter:image" content="http://images.tobit.com/locations/148001/cb742601-9c68-40f0-9f68-a806c60e2c6e.png"/>
+
+    <meta name="keywords" content="Ahaus, Kino, Cinemy, Cinetech, M&#252;nsterland, Cinetech M&#252;nsterland, Legden, Heek, Stadtlohn, S&#252;dlohn, Vreden, Gronau" />
+    <meta name="description" content="Das Cinemy in Ahaus" />
+
+
+    <title>Cinemy</title>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="https://chayns.tobit.com/storage/75505-33940/Images/icon-144.png" type="image/png">
+    
+
+    <link rel="stylesheet" type="text/css" href="/build/widemode.bundle.css?1.320" />
+
+
+    <link id="colorSchemeCss0" rel="stylesheet" type="text/css" href="/75505-33940/Style/InvertedStyle?theme=Stone&id=1&hex=6E6E6E&fb=0&_=1.320&designTimestamp=1529680419" />
+
+    <style id="backgroundStyles">
+        #bgImg {
+                    background-image: url('//images.tobit.com/ChaynsWebBG/BG-Bilder/Stone/lines.jpg?_=1493718248');
+                    background-repeat: repeat;
+        }
+
+
+    </style>
+
+    
+
+
+
+
+<script type="text/javascript">
+    var stack = [];
+    var sync = false;
+    var intervalId = null;
+
+    document.addEventListener('DOMContentLoaded',
+        function() {
+            intervalId = setInterval(function() {
+                clearInterval(intervalId);
+                if (window.ChaynsWeb && window.chayns) {
+                    sync = true;
+                    while (stack.length > 0) {
+                        var fn = stack.pop();
+                        fn();
+                    }
+
+                }
+            }, 10);
+
+            if (ChaynsInfo.isWideMode) {
+                var $coverImage = document.querySelector('#CoverImage');
+                var $pageHead = document.querySelector('#PageHead');
+
+                document.querySelector('#PageHead').style.transition = 'none';
+                if ($coverImage) $coverImage.style.transition = 'none';
+            }
+        }
+    );
+
+    function add(fn) {
+        if (sync) {
+            fn();
+            return 'sync';
+        }
+
+        stack.push(fn);
+        return 'async';
+    }
+
+    window.onLoadChaynsWeb = {
+        add: add
+    };
+</script>
+
+
+<script type="text/javascript">
+
+    function onloadCoverAnimation() {
+        onLoadChaynsWeb.add(function() {
+            window.showSeasonAnimation();
+        });
+    }
+
+    function onloadCover() {
+        onLoadChaynsWeb.add(function() {
+            window.ChaynsWeb.fitTitleBackground(this, 0);
+            window.showSeasonAnimation();
+        });
+    }
+
+    function onLoadTappCover(el) {
+        onLoadChaynsWeb.add(function() {
+            if (window.tappCover) {
+                window.tappCover.setCoverHeight(el);
+            }
+        });
+    }
+
+    function setPageHeadHeight(head) {
+        if (head && ChaynsInfo.isWideMode && localStorage) {
+            var  lsCoverHeight = localStorage.getItem('ChaynsWeb_CoverHeight_' + ChaynsInfo.SiteID);
+            head.style.minHeight = lsCoverHeight + 'px';
+            head.style.height = lsCoverHeight + 'px';
+        }
+    }
+
+    function setWideModeCoverHeight(ref) {        
+        var defaultRatio = 315 / 851; // 0.3701527614571093 (315 / 851)
+        var refRatio = ref.offsetHeight / ref.offsetWidth;
+        if (refRatio > defaultRatio) refRatio = defaultRatio;
+        var headHeight = ref.offsetWidth * defaultRatio;
+        if (headHeight > ref.offsetHeight) headHeight = ref.offsetHeight;
+
+        //if (headHeight < 450) headHeight = 450;
+
+        var $pageHead = document.querySelector('#PageHead');
+        var $coverOverlay = document.querySelector('#CoverImageOverlay');
+        var $coverVideo = document.querySelector('#coverVid');
+        var $pageBody = document.querySelector('#PageBodyContent');
+
+        if ($pageHead) $pageHead.style.minHeight = headHeight + 'px';
+        if ($coverOverlay) $coverOverlay.style.height = headHeight + 'px';
+        if ($coverVideo) $coverVideo.style.height = headHeight + 'px';
+        if ($pageBody) $pageBody.setAttribute('style', 'min-height: ' + (screen.availHeight - headHeight - 27) + 'px', '!important');
+    }
+</script>
+
+
+<script type="text/javascript">
+    window.ChaynsInfo = {
+        Version: "1.320",
+        BaseUrl: "/",
+        LocationID: 148001,
+        IsProLicense: 0,
+        SiteID: "75505-33940",
+        SiteIDInUrlRequired: false,
+        LocationName: "Cinemy",
+        ColorScheme: {
+            Name: "Stone",
+            ID: 1,
+            BaseColor: "#6E6E6E",
+            IsSoft: false,
+        },
+        IsMobile: false,
+        isWideMode: true,
+        ShowAppView: false,
+        PageID: 1414774485212009,
+        AdminMode: false,
+        CoverImageUrl: "//images.tobit.com/locations/148001/cb742601-9c68-40f0-9f68-a806c60e2c6e.png?_=1493728643",
+        Domain: "cinemy-ahaus.de",
+        IsComingSoon: false,
+        EnableChaynsId: true,
+        GoogleAnalyticsId: "UA-48157727-17",
+        Parallax: true,
+        ReLoginProgress: false,
+        LocationPersonID: "143-20757",
+        ColorMode: 1,
+        Color: "#6E6E6E",
+        IsPrimeSite: true,
+        HideTitelImage: false,
+        SlitteApp: {
+            Prime: true,
+            Status: "RELEASED",
+            InstallProcess: "ICON",
+            LayoutModeWebshadow: 0,
+            LayoutModeWebshadowMobile: 0,
+            ShowName: "Cinemy"
+        },
+        User: {
+            ID: 0,
+            PersonID: undefined,
+            FirstName: undefined,
+            LastName: undefined,
+            Language: undefined,
+            IsAdmin: false,
+            HasAltPicture: false,
+            TobitAccessToken: undefined,
+            UACGroups: null
+        },
+        Webshadow: {"IsSecureConnection":true,"LocationID":148001,"MetaKeywords":"Ahaus, Kino, Cinemy, Cinetech, Münsterland, Cinetech Münsterland, Legden, Heek, Stadtlohn, Südlohn, Vreden, Gronau","MetaDescription":"Das Cinemy in Ahaus","ColorSchemeID":1,"ColorSchemeMode":"default","HasImprint":false,"ColorSchemeHex":"6E6E6E","ColorSchemeName":"Stone","AllowFacebookInteractivity":false,"ColorScheme":{"TextColor":"84, 84, 84","ID":1,"Name":"Stone","BaseColor":"110, 110, 110","IsSoft":false,"BackgroundImage":"//images.tobit.com/ChaynsWebBG/BG-Bilder/Stone/Apple.jpg"},"MenuPosition":0,"ComingSoonTappId":null,"ComingSoonHeadline":null,"ComingSoonText":null,"ReleaseDate":null,"OverLayUrl":null,"ParallaxEnabled":true,"GoogleSiteVerification":"Ov2U-Owyl5kZbYZNVTMEE_eridtIF1NOZtbX3LxMQrw","TitleImageSpecialEffect":0,"EnableWideMode":true,"WelcomeMode":false,"BackgroundColor":null,"UseBackgroundColor":false,"CoverType":0,"Slideshow":{"SourceType":0,"AnimationType":0,"GalleryId":0,"Images":[]},"RibbonMenu":0,"MobileView":0,"MobileViewText":null,"MobileViewSkin":0},
+        DesignSettings: {"CanvasOpacity":null,"CanvasBackgroundBlur":null,"CardShadow":null,"SiteShadow":null,"TappOnCard":false,"BackgroundGradient":null,"GradientMode":0,"GradientStartColor":null,"GradientEndColor":null,"GradientType":null,"EnableOpacity":false,"EnableBlur":false,"EnableSiteShadow":false,"HeaderBarColor":null,"UseIcon":true},
+        Tapps: [{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":350858,"ParentTappId":-20,"InternalName":"Groups350858","ShowName":"Administration","SortID":-2005,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":null,"Url":null,"Link":null,"SendAuthenticationHeader":false,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":true,"Mobile":false,"Desktop":false,"ShowOnlyInAdminMode":false,"Icon":"fa-link","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":344826,"ParentTappId":349554,"InternalName":"Tapps344826","ShowName":"Willkommen","SortID":101,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"Willkommen","Url":"https://hybrid-web.tobit.com/PagemakerRazor?TappID=344826&OS=webshadow&color=6E6E6E&font=1&colormode=1&lang=##lang##&siteid=75505-33940&AdminMode=0&AppVersion=1.320&TappID=344826","Link":"/Willkommen","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-home","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":337977,"ParentTappId":349554,"InternalName":"Tapps337977","ShowName":"Slot buchen","SortID":102,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"Buchen","Url":"https://tapp01.tobit.com/tapps/RessourceManager/cinemy.web/views?ts1=9999&TappID=337977&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/Buchen","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-calendar","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":344865,"ParentTappId":349554,"InternalName":"Tapps344865","ShowName":"Service by offsite","SortID":104,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"pwrdbyoffsite","Url":"https://hybrid-web.tobit.com/PagemakerRazor?TappID=344865&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&siteid=##siteid##&AdminMode=##adminMode##&AppVersion=##version##","Link":"/pwrdbyoffsite","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-glass","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":337850,"ParentTappId":349554,"InternalName":"Tapps337850","ShowName":"FAQ","SortID":108,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"FrequentlyAskedQuestions","Url":"https://hybrid-web.tobit.com/PagemakerRazor?TappID=337850&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&siteid=##siteid##&AdminMode=##adminMode##&AppVersion=##version##","Link":"/FrequentlyAskedQuestions","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-question","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":340920,"ParentTappId":349554,"InternalName":"Feedback286848","ShowName":"Feedback","SortID":109,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"feedback","Url":"https://tapp01.tobit.com/Tapps/Rating/Web/index.html?TappID=340920&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/feedback","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-thumbs-o-up","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":93,"ParentTappId":349554,"InternalName":"Index","ShowName":"Über das Cinemy™","SortID":111,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"aboutus","Url":"https://hybrid-web.tobit.com/PagemakerRazor?TappID=178276&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&siteid=##siteid##&AdminMode=##adminMode##&AppVersion=##version##","Link":"/aboutus","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-home","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":381963,"ParentTappId":349554,"InternalName":"Tapps381963","ShowName":"GuestPortal","SortID":122,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":true,"LoadAsAjax":false,"customUrl":"GuestPortal","Url":"https://ubnt-api.tobit.com/guest/captive/authview?TappID=381963&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/GuestPortal","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":true,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-key","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":260359,"ParentTappId":349554,"InternalName":"Tapps260359","ShowName":"App","SortID":999,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"app","Url":"https://tapp01.tobit.com/Tapps/ChaynsGoToApp/?TappID=260359&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/app","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":true,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-plus","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":351619,"ParentTappId":349554,"InternalName":"Tapps351619","ShowName":"Coming soon","SortID":999,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":null,"Url":"https://tapp01.tobit.com/tapps/chayns-coming-soon?TappID=351619&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/tapp/351619","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":true,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-clock-o","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":424317,"ParentTappId":349554,"InternalName":"Tapps424317","ShowName":"Login","SortID":999,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":null,"Url":"https://frontend.tobit.com/chaynsLoginV2/index.html?TappID=424317&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/tapp/424317","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":true,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-lock","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":210771,"ParentTappId":349554,"InternalName":"ChaynsImpressum","ShowName":"Impressum","SortID":999999,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"impressum","Url":"https://tapp03.tobit.com/ChaynsImprint/?TappID=210771&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/impressum","SendAuthenticationHeader":false,"PostTobitAccessToken":false,"HideFromMenu":true,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-home","FallbackTapp":null}],
+        StartTapp: {"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":344826,"ParentTappId":349554,"InternalName":"Tapps344826","ShowName":"Willkommen","SortID":101,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"Willkommen","Url":"https://hybrid-web.tobit.com/PagemakerRazor?TappID=344826&OS=webshadow&color=6E6E6E&font=1&colormode=1&lang=##lang##&siteid=75505-33940&AdminMode=0&AppVersion=1.320&TappID=344826","Link":"/Willkommen","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-home","FallbackTapp":null},
+        Location: {"IsFacebook":false,"LocationID":148001,"CompanyID":144963,"SiteID":"75505-33940","LocationName":"Cinemy","FacebookID":"1414774485212009","LanguageID":"de_DE","CoverUrl":"https://tsimg.space/v1/images/26f7514e-232f-e711-837d-00155d00f417.jpg","CoverOffsetY":0,"HideWebShadow":false,"DomainMapping":"cinemy.chayns.net","ExternDomainMapping":"cinemy-ahaus.de","ValidExternDomainIP":true,"HideDomainOffer":false,"ColorMode":1,"FontID":1,"TitleName":null,"ShowWsBgImgAsTexture":true,"BackgroundImageType":"Line Texture","ChaynsPro":false,"IsSlave":false,"MasterSiteID":"60038-22141","AltCoverImageUrl":"//images.tobit.com/locations/148001/cb742601-9c68-40f0-9f68-a806c60e2c6e.png?_=1493728643","CoverVideoUrl":null,"EnableTitleVideo":false,"HasCoverVideo":false,"HasAltCover":true,"HasCover":true,"BackgroundImageUrl":"//images.tobit.com/ChaynsWebBG/BG-Bilder/Stone/lines.jpg?_=1493718248","BackgroundVideoUrl":null,"CoverOverlayUrl":null,"CoverFrameUrl":null,"LogoImg":"//images.tobit.com/locations/148001/WebShadow.png?_=1493721989","OrderModeID":1,"BackgroundSoundUrl":"//images.tobit.com/locations/148001/Cinematic_Soundloop_klein.mp3","BackgroundSoundMode":"loop","FbCategory":"Kino","LocationPersonsID":"143-20757","FBAppID":"996876623748482","LocationInfo":null,"Language":null,"TranslationEnabled":true},
+        IsQA: false,
+        IsDebug: false,
+        IsDebugLocal: false,
+        IsIntern: true,
+        IsChaynsApp: false
+    };
+
+    ChaynsInfo.ShowDomainOffer = false;
+    ChaynsInfo.showImprintToast = false;
+
+    
+    Facebook = window.Facebook || {};
+    Facebook.appid = "996876623748482";
+
+        Facebook.uid = undefined;
+            Facebook.accessToken = "";
+            Facebook.name = undefined;
+</script>
+    
+</head>
+<body class="noLinkIcon " >
+            <div id="bgImg" class="body-background hide"></div>
+            <script>
+                var img = new Image();
+                img.onload = function() {
+                    var bgImg = document.querySelector('#bgImg');
+
+                    if (bgImg) bgImg.classList.remove('hide');
+                };
+                img.src = '//images.tobit.com/ChaynsWebBG/BG-Bilder/Stone/lines.jpg?_=1493718248';
+            </script>
+
+    <div id="fb-root"></div>
+    <div id="chayns-root"></div>
+
+    <div class="scroll-top-arrow"><i class="fa fa-angle-up"></i></div>
+
+    <div id="MainFrame">
+            
+
+<div style="overflow:hidden">
+    <div id="PageHead" style="max-height: ;">
+
+    <img id="CoverImage" src="//images.tobit.com/locations/148001/cb742601-9c68-40f0-9f68-a806c60e2c6e.png?_=1493728643" onload="if (onloadCoverAnimation) onloadCoverAnimation(); if (setWideModeCoverHeight) setWideModeCoverHeight(this)" />
+    </div>
+</div>
+    <div id="HeadShadow"></div>
+
+        <div id="WebShadow">
+            <div id="LocationNameItemWrapper" class="ChaynsCS-BgColor">
+                <div class="LocationNameItem clearfix ChaynsCS-BgColor">
+                    <div class="locationIconWrapper  ">
+                        <img class="ChaynsCS-BgColor-50Pcnt locationIcon" id="locationIcon" onclick="ChaynsWeb.SelectTapp({ id: ChaynsInfo.StartTapp.Id });" onerror="if (this.parentElement) { this.parentElement.style.display = 'none'; this.parentElement.nextElementSibling.nextElementSibling.children[0].style.padding = '0'; } this.setAttribute('data-ok', 'false');" data-ok="true" src="https://chayns.tobit.com/storage/75505-33940/Images/icon-72.png?_=1533649523" onload="var locationNameWrapper = document.querySelector('.LocationNameWrapper-Docked-NoIcon'), locationName = document.querySelector('.LocationName-NoIcon'); locationNameWrapper && locationNameWrapper.classList.remove('LocationNameWrapper-Docked-NoIcon'); locationName && locationName.classList.remove('LocationName-NoIcon'); locationNameWrapper && locationNameWrapper.classList.remove('LocationNameWrapper-Docked');" />
+                    </div>
+
+                    <div style="display: none;" id="burgerBadge" class="burger-badge burger-badge--start">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <span class="LocationNameWrapper " id="PageNameMain" onclick="ChaynsWeb.SelectTapp({ id: ChaynsInfo.StartTapp.Id });"><img class="LocationLogo" src=//images.tobit.com/locations/148001/WebShadow.png?_=1493721989></span>
+
+                        <div id="BackgroundSoundPlayerWrapper">
+                            <img class="audioplayer-mute hidden" alt="mute" src="/Web/images/icons/sound_on.png" style="" />
+                            <img class="audioplayer-play hidden" alt="play" src="/Web/images/icons/sound_mute.png" style="" />
+                        </div>
+                </div>
+            </div>
+            <div id="PageBody">
+                <div id="BackgroundBlur"></div>
+                <div id="hint-container"></div>
+                <div id="PageBodyContent" >
+
+                    <noscript>
+                        <div class="dialogBackgroundLayer" style="display: block;">
+                            <div class="dialogBody" style="display: block;">
+                                <div>
+                                    <h1>Javascript erforderlich</h1>
+                                </div>
+                                <div class="dialogDescription">Leider funktioniert chayns® ohne aktiviertes Javascript nicht richtig.</div>
+                            </div>
+                        </div>
+                        <style>
+                            .dialogBackgroundLayer {
+                                margin: 20px;
+                                position: absolute;
+                            }
+                        </style>
+                    </noscript>
+
+
+
+<div id="Navigation" class="left fadeup  vhidden">
+    <div id="NavItems" class="nav-item-container">
+    
+        <div id="LoginWrapper" class="group-block">
+            <a onclick="Login.showDialog()">
+                <div class="nav-item--badge"></div>
+                <div class="nav-item SingleTapp">
+                    <span class="NavSymbol ChaynsCS-Color-75Pcnt fa ts-fingerprint"></span> <span>Anmelden</span>
+                </div>
+            </a>
+        </div>
+        
+    
+
+        <div class="group-block">
+
+
+
+
+    <div class="tappGroup accordion accordion--flex" data-group="root" style="display: none;">
+        <div class="accordion__head " style="border-bottom-color: white;">
+            <span class="accordion--trigger ellipsis " data-tappid="350858">
+                Administration
+            </span>
+            
+
+
+                <div id="adminSwitch" class="right">
+                    <input id="switch" class="switch" type="checkbox">
+                    <label for="switch"></label>
+                </div>
+        </div>
+        <div class="accordion__body">
+            <div class="accordion__content" style="padding: 0; border: 0;">
+                
+
+
+
+    <a class="AjaxLink" href="/tapp/254495" style="display: none;">
+        <div class="nav-item" data-tappid="254495"></div>
+    </a>
+
+            </div>
+        </div>
+    </div>
+        </div>
+        <div class="group-block NavigationCustomTapps">
+
+
+
+
+    <a class="AjaxLink " href="/Willkommen">
+        
+        <div class="nav-item--badge"></div>
+        <div class="nav-item  active" data-tappid="344826" data-sortid="101">
+            
+
+
+            <span class="NavSymbol ChaynsCS-Color-75Pcnt fa fa-home"></span>Willkommen
+        </div>
+    </a>
+
+
+    <a class="AjaxLink " href="/Buchen">
+        
+        <div class="nav-item--badge"></div>
+        <div class="nav-item  " data-tappid="337977" data-sortid="102">
+            
+
+
+            <span class="NavSymbol ChaynsCS-Color-75Pcnt fa fa-calendar"></span>Slot buchen
+        </div>
+    </a>
+
+
+    <a class="AjaxLink " href="/pwrdbyoffsite">
+        
+        <div class="nav-item--badge"></div>
+        <div class="nav-item  " data-tappid="344865" data-sortid="104">
+            
+
+
+            <span class="NavSymbol ChaynsCS-Color-75Pcnt fa fa-glass"></span>Service by offsite
+        </div>
+    </a>
+
+
+    <a class="AjaxLink " href="/FrequentlyAskedQuestions">
+        
+        <div class="nav-item--badge"></div>
+        <div class="nav-item  " data-tappid="337850" data-sortid="108">
+            
+
+
+            <span class="NavSymbol ChaynsCS-Color-75Pcnt fa fa-question"></span>FAQ
+        </div>
+    </a>
+
+
+    <a class="AjaxLink " href="/feedback">
+        
+        <div class="nav-item--badge"></div>
+        <div class="nav-item  " data-tappid="340920" data-sortid="109">
+            
+
+
+            <span class="NavSymbol ChaynsCS-Color-75Pcnt fa fa-thumbs-o-up"></span>Feedback
+        </div>
+    </a>
+
+
+    <a class="AjaxLink " href="/aboutus">
+        
+        <div class="nav-item--badge"></div>
+        <div class="nav-item  " data-tappid="93" data-sortid="111">
+            
+
+
+            <span class="NavSymbol ChaynsCS-Color-75Pcnt fa fa-home"></span>&#220;ber das Cinemy™
+        </div>
+    </a>
+
+
+    <a class="AjaxLink" href="/GuestPortal" style="display: none;">
+        <div class="nav-item" data-tappid="381963"></div>
+    </a>
+
+
+    <a class="AjaxLink" href="/app" style="display: none;">
+        <div class="nav-item" data-tappid="260359"></div>
+    </a>
+
+
+    <a class="AjaxLink" href="/tapp/351619" style="display: none;">
+        <div class="nav-item" data-tappid="351619"></div>
+    </a>
+
+
+    <a class="AjaxLink" href="/tapp/424317" style="display: none;">
+        <div class="nav-item" data-tappid="424317"></div>
+    </a>
+
+
+    <a class="AjaxLink" href="/impressum" style="display: none;">
+        <div class="nav-item" data-tappid="210771"></div>
+    </a>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script type="text/javascript" id="navScriptBlock">
+    (function() {
+        window.ChaynsInfo.Tapps = [{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":350858,"ParentTappId":-20,"InternalName":"Groups350858","ShowName":"Administration","SortID":-2005,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":null,"Url":null,"Link":null,"SendAuthenticationHeader":false,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":true,"Mobile":false,"Desktop":false,"ShowOnlyInAdminMode":false,"Icon":"fa-link","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":254495,"ParentTappId":350858,"InternalName":"Einrichtung","ShowName":"Einrichtung","SortID":999,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":true,"LoadAsAjax":false,"customUrl":null,"Url":"https://tapp03.tobit.com/ChaynsInstallation/index.html?TappID=254495&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/tapp/254495","SendAuthenticationHeader":false,"PostTobitAccessToken":false,"HideFromMenu":true,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-plus","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":344826,"ParentTappId":349554,"InternalName":"Tapps344826","ShowName":"Willkommen","SortID":101,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"Willkommen","Url":"https://hybrid-web.tobit.com/PagemakerRazor?TappID=344826&OS=webshadow&color=6E6E6E&font=1&colormode=1&lang=##lang##&siteid=75505-33940&AdminMode=0&AppVersion=1.320&TappID=344826","Link":"/Willkommen","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-home","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":337977,"ParentTappId":349554,"InternalName":"Tapps337977","ShowName":"Slot buchen","SortID":102,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"Buchen","Url":"https://tapp01.tobit.com/tapps/RessourceManager/cinemy.web/views?ts1=9999&TappID=337977&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/Buchen","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-calendar","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":344865,"ParentTappId":349554,"InternalName":"Tapps344865","ShowName":"Service by offsite","SortID":104,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"pwrdbyoffsite","Url":"https://hybrid-web.tobit.com/PagemakerRazor?TappID=344865&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&siteid=##siteid##&AdminMode=##adminMode##&AppVersion=##version##","Link":"/pwrdbyoffsite","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-glass","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":337850,"ParentTappId":349554,"InternalName":"Tapps337850","ShowName":"FAQ","SortID":108,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"FrequentlyAskedQuestions","Url":"https://hybrid-web.tobit.com/PagemakerRazor?TappID=337850&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&siteid=##siteid##&AdminMode=##adminMode##&AppVersion=##version##","Link":"/FrequentlyAskedQuestions","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-question","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":340920,"ParentTappId":349554,"InternalName":"Feedback286848","ShowName":"Feedback","SortID":109,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"feedback","Url":"https://tapp01.tobit.com/Tapps/Rating/Web/index.html?TappID=340920&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/feedback","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-thumbs-o-up","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":93,"ParentTappId":349554,"InternalName":"Index","ShowName":"Über das Cinemy™","SortID":111,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"aboutus","Url":"https://hybrid-web.tobit.com/PagemakerRazor?TappID=178276&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&siteid=##siteid##&AdminMode=##adminMode##&AppVersion=##version##","Link":"/aboutus","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":false,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-home","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":381963,"ParentTappId":349554,"InternalName":"Tapps381963","ShowName":"GuestPortal","SortID":122,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":true,"LoadAsAjax":false,"customUrl":"GuestPortal","Url":"https://ubnt-api.tobit.com/guest/captive/authview?TappID=381963&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/GuestPortal","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":true,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-key","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":260359,"ParentTappId":349554,"InternalName":"Tapps260359","ShowName":"App","SortID":999,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"app","Url":"https://tapp01.tobit.com/Tapps/ChaynsGoToApp/?TappID=260359&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/app","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":true,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-plus","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":351619,"ParentTappId":349554,"InternalName":"Tapps351619","ShowName":"Coming soon","SortID":999,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":null,"Url":"https://tapp01.tobit.com/tapps/chayns-coming-soon?TappID=351619&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/tapp/351619","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":true,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-clock-o","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":424317,"ParentTappId":349554,"InternalName":"Tapps424317","ShowName":"Login","SortID":999,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":null,"Url":"https://frontend.tobit.com/chaynsLoginV2/index.html?TappID=424317&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/tapp/424317","SendAuthenticationHeader":true,"PostTobitAccessToken":false,"HideFromMenu":true,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-lock","FallbackTapp":null},{"TappCoverUrl":"","TappVideoUrl":"","TappParallaxUrl":"","TappFrameUrl":"","TappCoverTimestamp":null,"TappVideoTimestamp":null,"TappParallaxTimestamp":null,"Id":210771,"ParentTappId":349554,"InternalName":"ChaynsImpressum","ShowName":"Impressum","SortID":999999,"Suffix":null,"UACGroupIDs":[],"ExclusiveMode":false,"LoadAsAjax":false,"customUrl":"impressum","Url":"https://tapp03.tobit.com/ChaynsImprint/?TappID=210771&OS=##os##&color=##color##&font=##fontid##&colormode=##colormode##&lang=##lang##&AppVersion=##version##","Link":"/impressum","SendAuthenticationHeader":false,"PostTobitAccessToken":false,"HideFromMenu":true,"IsGroup":false,"Mobile":true,"Desktop":true,"ShowOnlyInAdminMode":false,"Icon":"fa-home","FallbackTapp":null}];
+        window.ChaynsInfo.RibbonMenuTapps = [{"id":344826,"showName":"Willkommen","sortId":101,"icon":"fa-home"},{"id":337977,"showName":"Slot buchen","sortId":102,"icon":"fa-calendar"},{"id":344865,"showName":"Service by offsite","sortId":104,"icon":"fa-glass"},{"id":337850,"showName":"FAQ","sortId":108,"icon":"fa-question"},{"id":340920,"showName":"Feedback","sortId":109,"icon":"fa-thumbs-o-up"},{"id":93,"showName":"Über das Cinemy™","sortId":111,"icon":"fa-home"}];
+    })();
+</script>                        <div id="BodyContentCell">
+                            <div id="BodyContent">
+                                
+    <input data-val="true" data-val-number="The field Int32 must be a number." data-val-required="The Int32 field is required." id="ActiveTappID" name="ActiveTappID" type="hidden" value="344826" />
+    <script type="text/javascript">
+        var domAlreadyLoaded = false;
+
+        onLoadChaynsWeb.add(function() {
+            if (!domAlreadyLoaded) {
+                domAlreadyLoaded = true;
+
+                if (window.ChaynsInfo.ExclusiveMode) {
+                    if (!window.ChaynsInfo.IsMobile) {
+                        if (!window.ChaynsInfo.HideTitelImage && !window.ChaynsInfo.Location.IsFacebook) {
+                            var $pageHead = document.querySelector('#PageHead');
+                            var $navItems = document.querySelector('#NavItems');
+                            var $bodyContentCell = document.querySelector('#BodyContentCell');
+
+                            if ($pageHead) {
+                                $pageHead.style.display = 'block';
+                            }
+
+                            if ($navItems) {
+                                $navItems.style.position = '';
+                                $navItems.style.top = '';
+                            }
+
+                            if ($bodyContentCell) {
+                                $bodyContentCell.style.paddingBottom = '';
+                            }
+                        }
+
+                        var $navigation = document.querySelector('#Navigation');
+
+                        if ($navigation) {
+                            $navigation.style.display = 'block';
+                        }
+                    } else {
+                        window.Navigation.initTitleScroll();
+                    }
+                }
+            }
+        });
+    </script>
+                                
+
+
+
+    <script>
+        var loadedContentById = false;
+
+        onLoadChaynsWeb.add(function() {
+            if (!loadedContentById) {
+                loadedContentById = true;
+
+                window.customTapp.loadUrlByTappId(344826);
+            }
+        }, false);
+    </script>
+
+
+                            </div>
+                        </div>
+                </div>
+                <div id="WebBackground"></div>
+                <div id="BackgroundGradient"></div>
+
+
+<div id="FooterWrapper" class="footer">
+    <div class="footer-left">
+        <a onclick="event.preventDefault(); window.onLoadChaynsWeb.add(function(){window.chaynsRdr();}); window.open('https://chayns.net');" href="https://chayns.net">A chayns&#174;net Prime Site.</a>
+    </div>
+    <div class="footer-right">
+        <a class="AjaxLink" href="/impressum">
+            <div data-tappid="210771" style="display: inline-block">
+                <span>Impressum</span>
+            </div>
+        </a>
+        <a class="AjaxLink" data-tappparams="section=privacy" href="/impressum?section=privacy">
+            <div style="display: inline-block">
+                <span style="margin-left: 5px">Datenschutz</span>
+            </div>
+        </a>
+    </div>
+</div>            </div>
+        </div>
+    </div>
+    <iframe id="HiddenInfoBoxFrame" src="" style="display: none;"></iframe>
+
+    <audio class="audioplayer" id="AudioPlayer" autoplay loop>
+        <source src="//images.tobit.com/locations/148001/Cinematic_Soundloop_klein.mp3" type="audio/mpeg">
+    </audio>
+
+    
+
+<link rel="stylesheet" type="text/css" href="/Web/Fonts/font-awesome.min.css" />
+
+<link id="chaynsApiCss0" rel="stylesheet" type="text/css" href="//chayns-res.tobit.com/api/v3.1/css/chayns.min.css?color=6E6E6E&colormode=1&font=1&os=webshadow" />
+
+    
+
+<!-- Scripts -->
+<script src="https://polyfillsvc.tobit.com/polyfill.min.js?flags=gated&features=default,es6,fetch,performance.now,Array.prototype.includes"></script>
+<script src="/build/desktop.bundle.js?_=1.320" defer></script>
+
+<!--LangRes-->
+<script src="//chayns1.tobit.com/SlitteRessource/LangStrings/ChaynsWeb/ChaynsWebLangRes_Ger.js?_=1533649523" defer></script>
+<script src="//chayns.tobit.com/Include/LangRes/Global/GlobalLangRes_Ger.js?_=1533649523" defer></script>
+<script src="https://sub34.tobit.com/Scripts/TobitAuth.js?_=1.320" async></script>
+
+<!--API-->
+
+    <script src="//chayns-res.tobit.com/api/v3.1/js/chayns.min.js" defer onload="chayns.register({ forceAjaxCalls: true, appName: 'chaynsWeb' });"></script>
+
+<script src="//chayns-res.tobit.com/api/v3/intern/chaynsLangRes/js/chaynsLangRes.min.js" defer></script>
+
+
+<script type="text/javascript">
+    window.onLoadChaynsWeb.add(function() {
+
+        ChaynsInfo.HideTitelImage = ("False" === 'True');
+        ChaynsInfo.Parallax = ("True" === 'True');
+
+        chayns.ready.then(function() {
+            chayns.utils.lang.init({
+                libs: [
+                    {
+                        project: "ChaynsWeb",
+                        middle: "LangRes"
+                    }
+                ],
+                successCallback: function() {
+                    chayns.utils.lang.renderTextStrings();
+                    chayns.hideWaitCursor();
+                }
+            });
+        });
+    });
+</script>
+
+        <script id="StatsScript">
+        window.addEventListener('DOMContentLoaded', function() {
+            function remove() {
+                this.parentElement.removeChild(this);
+            }
+
+            var img = new Image();
+            img.src = Url.Content('~/statistics/visitor');
+            img.onload = remove;
+            img.onerror = remove;
+
+            document.body.appendChild(img);
+
+            var $statsScript = document.querySelector('script#StatsScript');
+            if ($statsScript) {
+                $statsScript.parentElement.removeChild($statsScript);
+            }
+        });
+    </script>
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-48157727-17', 'auto');
+        ga('send', 'pageview');
+        ga('set', 'anonymizeIp', true);
+    </script>
+
+    
+</body>
+</html>
