@@ -2,12 +2,6 @@
     font-size: 48px;
 }
 
-#callIcon {
-    height: 25px;
-    width: 25px;
-    margin-left: 20px;
-}
-
-#callIcon:hover {
-    cursor: pointer;
+#Countdown {
+    text-align: center;
 }
