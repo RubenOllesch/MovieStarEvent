@@ -13,7 +13,7 @@
     <body>
         <div class="tapp" style="min-height: 650px;">
             <div class="tapp__intro">
-                <h1 style="font-size: 48px;">Dieter, triff Tom Cruise!</h1>
+                <h1 style="font-size: 48px;" id="titleQuestion">Triff Tom Cruise!</h1>
             </div>
 
             <div class="tapp__content">
@@ -55,15 +55,15 @@
                         <div class="accordion__body">
                             <div class="accordion__content">
                                 <span>Telefonnummer: </span>
-                                <span id="pressToCall">
+                                <span>
                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <span>1234567890</span>
+                                    <span>
+                                        <a href="tel:+1-303-499-7111">+1 (303) 499-7111</a>
+                                    </span>
                                     <!--
                                     <img id="callIcon" src="res/callIcon.png" alt="Jetzt anrufen" onclick="callNumber(1234567890)">
-                                    -->
-                                    
-                                </span>
-                                
+                                    -->                                    
+                                </span>                                
                             </div>
                             <div class="accordion__content">
                                 Noch mehr Kontakt
@@ -78,12 +78,12 @@
                             <div class="accordion__content">
                                 <div style="text-align: center">
                                     <!--   Zeige Route an   -->
-                                    <button class="button">Führe mich zu  Tom Cruise</button>
+                                    <button onclick="showRoute()"class="button">Führe mich zu  Tom Cruise</button>
                                 </div>
                                 <p></p>
 
-                                <div gallery="MapsExample">
-                                    <div class="gallery__item"  style="background-image: url(res/GoogleMapsExample.png)"></div>
+                                <div>
+                                    <iframe id="cinemyMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2452.254507294166!2d7.005163616144488!3d52.07509667973238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8418471e53f73%3A0x7c7ffdda4066161b!2soffsite!5e0!3m2!1sde!2sde!4v1533734955656" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>
@@ -94,6 +94,5 @@
 
         <script src="https://chayns-res.tobit.com/API/V3.1/js/chayns.min.js"></script>
         <script src="script/main.js"></script>
-        <script src="script/animation.js"></script>
     </body>
 </html>
