@@ -13,7 +13,7 @@
     <body>
         <div class="tapp" style="min-height: 650px;">
             <div class="tapp__intro">
-                <h1 id="titleQuestion">Dieter, triff Tom Cruise!</h1>
+                <h1 style="font-size: 48px;">Dieter, triff Tom Cruise!</h1>
             </div>
 
             <div class="tapp__content">
@@ -29,9 +29,8 @@
                                     <h2>Treffe Tom Cruise jetzt persönlich!</h2>
                                     Du bist ein Fan von Actionfilmen? 
                                     Du magst Tom Cruise? 
-                                    In unserem Cinemy hast du die exklusive Chance Tom Cruise persönlich bei der Premiere seines Filmes Mission Impossible Fallout zu treffen. 
-                                    Das Einzige, was Du machen musst ist einen Kommentar abzuschicken. 
-                                    Mit etwas Glück bist Du einer der 11 Gewinner, die diese einmalige Chance wahrnehmen dürfen.    
+                                    In unserem Cinemy hast du die exklusive Chance Tom Cruise persönlich bei der Premiere seines Filmes Mission Impossible Fallout zu treffen.
+                                    Mit etwas Glück bist Du einer der 11 Gewinner, die am Samstag, dem 13.9, diese einmalige Chance wahrnehmen dürfen.    
                                 </div>
                             </div>
                             <div>
@@ -43,8 +42,8 @@
                             </div>
                             <br>
                             <div>
-                                <h1 id="Countdown">
-                                    17d : 8h : 41min : 37s 
+                                <h1 style="text-align: center;">
+                                    17 Tage | 8 Std. | 41 Min. | 37 Sek. 
                                 </h1>
                             </div>
    
@@ -56,11 +55,15 @@
                         <div class="accordion__body">
                             <div class="accordion__content">
                                 <span>Telefonnummer: </span>
-                                <span>1234567890</span>
-                                <!--
-                                <img id="callIcon" src="res/callIcon.png" alt="Jetzt anrufen" onclick="callNumber(1234567890)">
-                                -->
-                                <i class="fa fa-phone" id="callIcon" aria-hidden="true"></i>
+                                <span id="pressToCall">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <span>1234567890</span>
+                                    <!--
+                                    <img id="callIcon" src="res/callIcon.png" alt="Jetzt anrufen" onclick="callNumber(1234567890)">
+                                    -->
+                                    
+                                </span>
+                                
                             </div>
                             <div class="accordion__content">
                                 Noch mehr Kontakt
@@ -73,6 +76,12 @@
                         <div class="accordion__body">
                             <div class="accordion__intro">Das Cinemy befindet sich direkt in der Ahauser Innenstadt über dem offsite. </div>
                             <div class="accordion__content">
+                                <div style="text-align: center">
+                                    <!--   Zeige Route an   -->
+                                    <button class="button">Führe mich zu  Tom Cruise</button>
+                                </div>
+                                <p></p>
+
                                 <div gallery="MapsExample">
                                     <div class="gallery__item"  style="background-image: url(res/GoogleMapsExample.png)"></div>
                                 </div>

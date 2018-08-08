@@ -1,7 +1,8 @@
-#titleQuestion {
-    font-size: 48px;
+#pressToCall {
+    color: #8a8a8a;
+}
+#pressToCall:hover {
+    cursor: pointer;
+    color: #07ca00;
 }
 
-#Countdown {
-    text-align: center;
-}
