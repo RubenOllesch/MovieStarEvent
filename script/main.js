@@ -1,5 +1,10 @@
 'use strict'; 
 
+
+//import {countdown} from 'script/countdown.js';
+//import {init} from 'script/googeMapsRoute.js';
+
+
 const endOfContest = new Date(Date.parse('13 Aug 2018 0:00:00 +2'));
 const googleMapsApiKey = 'AIzaSyBDKCXijuIfpBkErHPMU8guePWKp1rxj98';
 
@@ -23,6 +28,7 @@ chayns.ready.then(function () {
     }
     else {
         var display = document.querySelector('#countdown');
+        //TODO: replace with module call
         initCountdown(endOfContest, display);
     }
 });
@@ -30,6 +36,7 @@ chayns.ready.then(function () {
 function enterContest() {
     if (!chayns.env.user.isAuthenticated) {
         chayns.setAccessTokenChange(false, function() {
+            //Will be called after the login
             showCommentDialog();
         });
         chayns.login();
@@ -64,7 +71,6 @@ function commentHandler(dialogData) {
             userID : chayns.env.user.id, 
             comment : dialogData.text
         };
-        console.log(jsonMessage);
 
         chayns.intercom.sendMessageToPage(jsonMessage)
         .then(function(result){
