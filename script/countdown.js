@@ -1,33 +1,31 @@
-var countdown = (function (chayns, window, undefined) {
+(function (countdown, chayns, window, undefined) {
  
     'use strict';
  
-    var countdown;
- 
-    countdown.init = function init(data) {
-        // start
+    countdown.init = function init(endDate, displayTarget) {
+        _initCountdown(endDate, displayTarget);
     };
  
-    function initCountdown(endDate, display) {
+    function _initCountdown(endDate, displayTarget) {
         var timeinterval = setInterval(function(){
-            var timeLeft = getSecondsUntilDate(endDate);
+            var timeLeft = _getSecondsUntilDate(endDate);
             if (timeLeft <= 0) {
                 display.innerHTML = 'Der Contest ist zuende'
             }
             else {
-                var timeLeft = secondsToDate(timeLeft);
-                display.innerHTML = timeLeft.days + ' Tage | ' + timeLeft.hours + ' Std. | ' + timeLeft.minutes + ' Min. | ' + timeLeft.seconds + ' Sek.';
+                var timeLeft = _secondsToDate(timeLeft);
+                displayTarget.innerHTML = timeLeft.days + ' Tage | ' + timeLeft.hours + ' Std. | ' + timeLeft.minutes + ' Min. | ' + timeLeft.seconds + ' Sek.';
             }
         },1000);
     }
     
-    function getSecondsUntilDate(endDate) {
+    function _getSecondsUntilDate(endDate) {
         var currentTime = new Date();
         var timeLeft = endDate.getTime() - currentTime.getTime();
         return Math.floor(timeLeft / 1000);
     }
     
-    function secondsToDate(totalSeconds) {
+    function _secondsToDate(totalSeconds) {
         var days = Math.floor(totalSeconds / 86400); 
         var hours = Math.floor(((totalSeconds % 31536000) % 86400) / 3600);
         var minutes = Math.floor((((totalSeconds % 31536000) % 86400) % 3600) / 60);
@@ -40,8 +38,4 @@ var countdown = (function (chayns, window, undefined) {
         }
     }
  
-    return countdown;
- 
-})(chayns, window);
-
-
+})((window.countdown = {}), chayns, window);

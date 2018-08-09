@@ -1,15 +1,12 @@
-(function (tappProject, chayns, window, apiKey, destination, undefined) {
+(function (showRoute, chayns, window, undefined) {
  
     'use strict';
-
-    const googleMapsApiKey = 'AIzaSyBDKCXijuIfpBkErHPMU8guePWKp1rxj98';
  
-    tappProject.init = function init(data) {
-        // start
+    showRoute.init = function init(destination, apiKey, displayTarget) {
+        _showRoute(destination, apiKey, displayTarget);
     };
  
-    function showRoute() {
-        var destination = 'offsite+Oldenkottplatz+Ahaus';
+    function _showRoute(destination, apiKey, displayTarget) {
         //Default location
         var origin = '0,0';
         chayns.showWaitCursor();
@@ -17,9 +14,9 @@
         .then(function(locationData) {
             origin = locationData.latitude + ',' + locationData.longitude;
             console.log(origin);
-            var mapURL = 'https://www.google.com/maps/embed/v1/directions?key=' + googleMapsApiKey + '&origin=' + origin + '&destination=' + destination + '&avoid=tolls|highways';
+            var mapURL = 'https://www.google.com/maps/embed/v1/directions?key=' + apiKey + '&origin=' + origin + '&destination=' + destination + '&avoid=tolls|highways';
             console.log(mapURL);
-            document.querySelector('#cinemyMap').src = mapURL;
+            document.querySelector(displayTarget).src = mapURL;
             chayns.hideWaitCursor()
         })
         .catch((error) => {
@@ -27,4 +24,4 @@
         });
     }
  
-})((window.tappProject = {}), chayns, window);
+})((window.showRoute = {}), chayns, window);
